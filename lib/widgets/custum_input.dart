@@ -13,6 +13,21 @@ class CustumInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: lableText,
+          labelStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      ),
+    );
   }
 }
