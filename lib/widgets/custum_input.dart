@@ -31,6 +31,8 @@ class CustumInput extends StatelessWidget {
             borderSide: BorderSide(color: darkGreen),
             borderRadius: BorderRadius.circular(12),
           ),
+          filled: true,
+          contentPadding: EdgeInsets.symmetric(vertical: 13, horizontal: 12),
         ),
       ),
     );
