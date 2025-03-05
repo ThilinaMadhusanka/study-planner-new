@@ -18,6 +18,7 @@ class CustumInput extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         controller: controller,
+        validator: validator,
         decoration: InputDecoration(
           labelText: lableText,
           labelStyle: TextStyle(
