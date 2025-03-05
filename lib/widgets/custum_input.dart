@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_planner_new/constants/colors.dart';
 
 class CustumInput extends StatelessWidget {
   final TextEditingController controller;
@@ -25,6 +26,10 @@ class CustumInput extends StatelessWidget {
           ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: darkGreen),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),
