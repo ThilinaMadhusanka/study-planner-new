@@ -28,6 +28,7 @@ class MainPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    //add course
                     ElevatedButton(
                       onPressed: () {
                         GoRouter.of(context).push("/add-new-course");
