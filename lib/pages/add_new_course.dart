@@ -50,6 +50,7 @@ class AddNewCourse extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
+                //input box
                 CustumInput(
                   lableText: "Course name",
                   controller: TextEditingController(),
