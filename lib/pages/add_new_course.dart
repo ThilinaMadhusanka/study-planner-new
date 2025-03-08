@@ -53,32 +53,56 @@ class AddNewCourse extends StatelessWidget {
                 //input box
                 CustumInput(
                   lableText: "Course name",
-                  controller: TextEditingController(),
-                  //validator: (p0) {},
+                  controller: _courseNameController,
+                  validator: (value) {
+                    if(value?.isEmpty ?? true) {
+                      return "Please enter a course name";
+                    }
+                    return null;
+                  },
                   //key: GlobalKey(),
                 ),
                 CustumInput(
-                  lableText: "Description",
-                  controller: TextEditingController(),
-                  //validator: (p0) {},
+                  lableText: "Course Description",
+                  controller: _courseDescriptionController,
+validator: (value) {
+                    if(value?.isEmpty ?? true) {
+                      return "Please enter a course decription";
+                    }
+                    return null;
+                  },                  //key: GlobalKey(),
+                ),
+                CustumInput(
+                  lableText: "Course Duration",
+                  controller: _courseDurationController,
+                  validator: (value) {
+                    if(value?.isEmpty ?? true) {
+                      return "Please enter a course duration";
+                    }
+                    return null;
+                  },
                   //key: GlobalKey(),
                 ),
                 CustumInput(
-                  lableText: "Duration",
-                  controller: TextEditingController(),
-                  //validator: (p0) {},
+                  lableText: "Course Shedule",
+                  controller: _courseSheduleController,
+                  validator: (value) {
+                    if(value?.isEmpty ?? true) {
+                      return "Please enter a course shedule";
+                    }
+                    return null;
+                  },
                   //key: GlobalKey(),
                 ),
                 CustumInput(
-                  lableText: "Shedule",
-                  controller: TextEditingController(),
-                  //validator: (p0) {},
-                  //key: GlobalKey(),
-                ),
-                CustumInput(
-                  lableText: "Instructor",
-                  controller: TextEditingController(),
-                  //validator: (p0) {},
+                  lableText: "Course Instructor",
+                  controller: _courseInstructorController,
+                  validator: (value) {
+                    if(value?.isEmpty ?? true) {
+                      return "Please enter a course instructor";
+                    }
+                    return null;
+                  },
                   //key: GlobalKey(),
                 ),
                 SizedBox(
