@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_planner_new/constants/colors.dart';
+import 'package:study_planner_new/widgets/custum_button.dart';
 import 'package:study_planner_new/widgets/custum_input.dart';
 
 class AddNewCourse extends StatelessWidget {
@@ -15,6 +16,13 @@ class AddNewCourse extends StatelessWidget {
       TextEditingController();
   final TextEditingController _courseInstructorController =
       TextEditingController();
+  void _submitForm(BuildContext context) async {
+    if (_formKey.currentState?.validate() ?? false) {
+      //form save
+      _formKey.currentState?.save();
+      print(_courseDescriptionController.text);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +63,7 @@ class AddNewCourse extends StatelessWidget {
                   lableText: "Course name",
                   controller: _courseNameController,
                   validator: (value) {
-                    if(value?.isEmpty ?? true) {
+                    if (value?.isEmpty ?? true) {
                       return "Please enter a course name";
                     }
                     return null;
@@ -65,18 +73,18 @@ class AddNewCourse extends StatelessWidget {
                 CustumInput(
                   lableText: "Course Description",
                   controller: _courseDescriptionController,
-validator: (value) {
-                    if(value?.isEmpty ?? true) {
+                  validator: (value) {
+                    if (value?.isEmpty ?? true) {
                       return "Please enter a course decription";
                     }
                     return null;
-                  },                  //key: GlobalKey(),
+                  }, //key: GlobalKey(),
                 ),
                 CustumInput(
                   lableText: "Course Duration",
                   controller: _courseDurationController,
                   validator: (value) {
-                    if(value?.isEmpty ?? true) {
+                    if (value?.isEmpty ?? true) {
                       return "Please enter a course duration";
                     }
                     return null;
@@ -87,7 +95,7 @@ validator: (value) {
                   lableText: "Course Shedule",
                   controller: _courseSheduleController,
                   validator: (value) {
-                    if(value?.isEmpty ?? true) {
+                    if (value?.isEmpty ?? true) {
                       return "Please enter a course shedule";
                     }
                     return null;
@@ -98,7 +106,7 @@ validator: (value) {
                   lableText: "Course Instructor",
                   controller: _courseInstructorController,
                   validator: (value) {
-                    if(value?.isEmpty ?? true) {
+                    if (value?.isEmpty ?? true) {
                       return "Please enter a course instructor";
                     }
                     return null;
@@ -108,23 +116,11 @@ validator: (value) {
                 SizedBox(
                   height: 16,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: primaryColor,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 12,
-                    ),
-                  ),
-                  child: Text(
-                    "Add Course",
-                    style: TextStyle(
-                      backgroundColor: primaryColor,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                CustumButton(
+                  text: "Add Course",
+                  onPressed: () {
+                    _submitForm(context);
+                  },
                 ),
               ],
             ),
