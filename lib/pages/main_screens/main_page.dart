@@ -92,7 +92,43 @@ class MainPage extends StatelessWidget {
                 ),
                 StreamBuilder(
                   stream: CourseService().courses,
-                  builder: (context, snapshot) {},
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text("Error :${snapshot.error}"),
+                      );
+                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return Center(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height / 5,
+                          ),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/a.png",
+                                width: 200,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "No courses available. Feel free to add a course!",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+                  },
                 ),
               ],
             ),
