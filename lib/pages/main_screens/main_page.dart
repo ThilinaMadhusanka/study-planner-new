@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:study_planner_new/constants/colors.dart';
+import 'package:study_planner_new/services/course_service.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -16,6 +17,7 @@ class MainPage extends StatelessWidget {
               vertical: 15,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,6 +68,31 @@ class MainPage extends StatelessWidget {
                     color: Colors.grey,
                     fontSize: 15,
                   ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  "Courses",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "Your running subjects",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 14,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                StreamBuilder(
+                  stream: CourseService().courses,
+                  builder: (context, snapshot) {},
                 ),
               ],
             ),

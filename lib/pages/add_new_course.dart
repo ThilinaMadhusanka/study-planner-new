@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:study_planner_new/constants/colors.dart';
+import 'package:study_planner_new/models/course_model.dart';
+import 'package:study_planner_new/services/course_service.dart';
+import 'package:study_planner_new/utils/util_functions.dart';
 import 'package:study_planner_new/widgets/custum_button.dart';
 import 'package:study_planner_new/widgets/custum_input.dart';
 
@@ -20,7 +24,36 @@ class AddNewCourse extends StatelessWidget {
     if (_formKey.currentState?.validate() ?? false) {
       //form save
       _formKey.currentState?.save();
-      print(_courseDescriptionController.text);
+      // Add course to firestore or any other storage here
+      try {
+        // Create a new course
+        final Course course = Course(
+          id: "",
+          name: _courseNameController.text,
+          description: _courseDescriptionController.text,
+          duration: _courseDurationController.text,
+          schedule: _courseSheduleController.text,
+          instructor: _courseInstructorController.text,
+        );
+        await CourseService().createNewCourse(course);
+
+        // Show success snackBar
+        if (context.mounted) {
+          showSnackBar(context: context, text: "Course added successfully..!");
+        }
+        // Delay navigation to ensure snackBar is displayed
+        await Future.delayed(
+          Duration(seconds: 2),
+        );
+
+        // Navigate to the home page
+        GoRouter.of(context).go("/");
+      } catch (error) {
+        // Show error  snackBar
+        if (context.mounted) {
+          showSnackBar(context: context, text: "Faild to add course");
+        }
+      }
     }
   }
 
