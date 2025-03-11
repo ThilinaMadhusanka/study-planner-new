@@ -127,6 +127,45 @@ class MainPage extends StatelessWidget {
                           ),
                         ),
                       );
+                    } else {
+                      final courses = snapshot.data!;
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: courses.length,
+                        itemBuilder: (context, index) {
+                          final course = courses[index];
+                          return Card(
+                            elevation: 0,
+                            color: lightGreen,
+                            margin: EdgeInsets.symmetric(
+                              vertical: 8,
+                            ),
+                            child: ListTile(
+                              title: Text(
+                                course.name,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              subtitle: Text(
+                                course.description,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              onTap: () {
+                                GoRouter.of(context).push(
+                                  "/single-course",
+                                  extra: course,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      );
                     }
                   },
                 ),
