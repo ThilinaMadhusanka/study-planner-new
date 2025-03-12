@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Add Bottom navigation bar
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onTapItem,
         currentIndex: _selectedIndex,
