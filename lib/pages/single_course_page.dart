@@ -17,6 +17,7 @@ class SingleCoursePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Course details
             Text(
               course.name,
               style: TextStyle(
