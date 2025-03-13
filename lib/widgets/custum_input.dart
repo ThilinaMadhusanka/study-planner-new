@@ -16,6 +16,7 @@ class CustumInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5),
+      //Create input box
       child: TextFormField(
         controller: controller,
         validator: validator,
