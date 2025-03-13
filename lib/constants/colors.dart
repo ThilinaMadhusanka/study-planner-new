@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Commenly use colors
+
 Color primaryColor = Color(0xff3ECF8E);
 
 //Green shades
