@@ -27,6 +27,7 @@ class Course {
     );
   }
 
+  //dart object ------> firebase
   Map<String, dynamic> toJson() {
     return {
       'id': id,
