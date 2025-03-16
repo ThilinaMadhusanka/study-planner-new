@@ -15,6 +15,7 @@ class Course {
     required this.instructor,
   });
 
+  //firebase(document) ---->dart object
   factory Course.fromJSON(Map<String, dynamic> json) {
     return Course(
       id: json['id'] ?? '',
