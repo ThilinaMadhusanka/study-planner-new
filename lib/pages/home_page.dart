@@ -31,15 +31,18 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onTapItem,
         currentIndex: _selectedIndex,
+        // Home page
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",
           ),
+          // Course page
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: "Courses",
           ),
+          // Assignment page
           BottomNavigationBarItem(
             icon: Icon(Icons.assessment_rounded),
             label: "Assignments",
