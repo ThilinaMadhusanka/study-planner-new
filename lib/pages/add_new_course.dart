@@ -9,7 +9,7 @@ import 'package:study_planner_new/widgets/custum_input.dart';
 
 class AddNewCourse extends StatelessWidget {
   AddNewCourse({super.key});
-
+// TextEditing controllers create
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _courseNameController = TextEditingController();
   final TextEditingController _courseDescriptionController =
