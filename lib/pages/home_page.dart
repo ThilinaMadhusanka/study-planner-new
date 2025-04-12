@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  //bottonAppbar main pages
   static final List<Widget> _pages = [
     MainPage(),
     CoursesPage(),
